@@ -1,0 +1,99 @@
+{
+	"name": "Pulse playback timer",
+	"version": "1.1.0",
+	"description": "Adds a playback timer animation to Pulse slideshows.",
+	"demo": "http://koken.me",
+	"author": {
+		"name": "Koken",
+		"link": "https://store.koken.me/authors/koken"
+	},
+
+	"koken_version_required": "0.18.0-beta.1",
+
+	"plugin": "timer.js",
+
+	"id": "koken_pulse_timer",
+
+	"title": "Timer",
+
+	"settings": {
+
+		"koken_pulse_timer_style": {
+			"label": "Style",
+			"type": "select",
+			"options": [
+				{ "label": "Beam", "value": "beam" },
+				{ "label": "Pie", "value": "pie" },
+				{ "label": "Bobber", "value": "bobber" }
+			],
+			"value": "beam"
+		},
+
+		"koken_pulse_timer_position": {
+			"label": "Position",
+			"type": "select",
+			"options": [
+				{ "label": "Top Left", "value": "top left" },
+				{ "label": "Top Right", "value": "top right" },
+				{ "label": "Bottom Right", "value": "bottom right" },
+				{ "label": "Bottom Left", "value": "bottom left" },
+				{ "label": "Top Center", "value": "top center" },
+				{ "label": "Right Center", "value": "center right" },
+				{ "label": "Bottom Center", "value": "bottom center" },
+				{ "label": "Left Center", "value": "center left" },
+				{ "label": "Center", "value": "center" }
+			],
+			"value": "top right"
+		},
+
+		"koken_pulse_timer_countdown": {
+			"label": "Countdown",
+			"type": "boolean",
+			"value": false,
+			"dependencies": {
+				"evaluate": "all",
+				"conditions": [
+					{
+						"option": "koken_pulse_timer_style",
+						"not": "bobber"
+					}
+				]
+			}
+		},
+
+		"koken_pulse_timer_radius": {
+			"label": "Size",
+			"type": "number",
+			"type": "slider",
+			"min": 10,
+			"max": 50,
+			"step": 1,
+			"value": 36,
+			"suffix": "px"
+		},
+
+		"koken_pulse_timer_color": {
+			"label": "Progress",
+			"type": "color",
+			"value": "white"
+		},
+
+		"koken_pulse_timer_bgcolor": {
+			"label": "Background",
+			"type": "color",
+			"with_alpha": true,
+			"value": "rgba(0,0,0,0.6)",
+			"dependencies": {
+				"evaluate": "all",
+				"conditions": [
+					{
+						"option": "koken_pulse_timer_style",
+						"equals": "beam"
+					}
+				]
+			}
+		}
+
+	}
+
+}
